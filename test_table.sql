@@ -1,4 +1,4 @@
-CREATE TABLE `new_tab` (
+CREATE TABLE `test` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `timestamp` varchar(30) DEFAULT NULL COMMENT '时间戳',
   `msg` varchar(255) DEFAULT NULL COMMENT '信息',
