@@ -1,24 +1,25 @@
 # -*- coding:utf-8 -*-
-#
 import time
 import random
 import pymysql
 import string
 import datetime
-import json
 
 all_chs = string.digits + string.ascii_letters
+
 
 def get_random_str(str_length):
     random_str_list = [random.choice(all_chs) for k in range(str_length)]
     return ''.join(random_str_list)
 
+
 class RunSqlToMysql(object):
     def __init__(self):
         #self.mysql_host = 'pproxy.proxy-cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
-        self.mysql_host = 'pm1.cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
+        self.mysql_host = 'aurora.cluster-cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
+        #self.mysql_host = 'pm1.cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
         self.mysql_user = 'admin'
-        self.mysql_password = 'Pjy'
+        self.mysql_password = 'Pjy#0618'
         self.mysql_db_name = 'pp'
 
     def connect_db(self):
@@ -43,7 +44,8 @@ class RunSqlToMysql(object):
         db_connect.commit()  # 提交修改，类似github的commit操作
         # print(' sql "%s" successfully' % sql)
         return result
-
+        
+            
     # def run_sql(db_connect, sql):
     #     # 使用cursor()方法获取游标
     #     cursor = db_connect.cursor()
@@ -64,15 +66,9 @@ class RunSqlToMysql(object):
         return sql_sentence
 
     def do(self):
-        mysql_con = self.connect_db()
-        serverid = self.run_sql(mysql_con, "show variables like'server_id';")
-        insert_sql = self.get_sql('test',''.join(serverid))
-        self.run_sql(mysql_con, insert_sql)
-        mysql_con.close()
-
         while True:
             try:
-                # time.sleep(0.1)
+                time.sleep(0.1)
                 mysql_con = self.connect_db()
                 serverid = self.run_sql(mysql_con, "show variables like'server_id';")
                 insert_sql = self.get_sql('test',':'.join(serverid))
