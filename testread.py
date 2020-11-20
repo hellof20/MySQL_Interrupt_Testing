@@ -20,7 +20,9 @@ class RunSqlToMysql(object):
             database=self.mysql_db_name,
             port=3306,
             charset='utf8mb4',
-            connect_timeout=1
+            connect_timeout=1,
+            read_timeout=1,
+            write_timeout=1
         )
         return con_engine
 
