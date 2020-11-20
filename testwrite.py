@@ -15,10 +15,11 @@ def get_random_str(str_length):
 
 class RunSqlToMysql(object):
     def __init__(self):
-        self.mysql_host = 'pproxy.proxy-cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
+        #self.mysql_host = 'pproxy.proxy-cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
         #self.mysql_host = 'aurora.cluster-cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
         #self.mysql_host = 'pm1.cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
-        self.mysql_user = 'admin'
+        self.mysql_host = 'rm-t4n4qd132fvxy5prgho.mysql.singapore.rds.aliyuncs.com'
+        self.mysql_user = 'pwm'
         self.mysql_password = 'Pjy#0618'
         self.mysql_db_name = 'pp'
 
@@ -53,16 +54,29 @@ class RunSqlToMysql(object):
 
     def do(self):
         while True:
+            print('----------------------------')
+            print(datetime.datetime.now())
             try:
                 time.sleep(0.1)
-                mysql_con = self.connect_db()
-                serverid = self.run_sql(mysql_con, "show variables like'server_id';")
-                print(datetime.datetime.now(),':'.join(serverid))
-                insert_sql = self.get_sql('test',':'.join(serverid))
-                self.run_sql(mysql_con, insert_sql)
+                try:
+                    mysql_con = self.connect_db()
+                    print('connect successful')
+                except:
+                    print('connect error')
+                try:
+                    serverid = self.run_sql(mysql_con, "show variables like'server_id';")
+                    print('read successful: ',':'.join(serverid))
+                except:
+                    print('read error')
+                try:
+                    insert_sql = self.get_sql('test',':'.join(serverid))
+                    self.run_sql(mysql_con, insert_sql)
+                    print('insert successful')
+                except:
+                    print('insert error')
                 mysql_con.close()
             except:
-                print('connect fail')
+                pass
             continue
 
 if __name__ == '__main__':
