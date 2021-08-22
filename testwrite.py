@@ -15,13 +15,10 @@ def get_random_str(str_length):
 
 class RunSqlToMysql(object):
     def __init__(self):
-        #self.mysql_host = 'pproxy.proxy-cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
-        #self.mysql_host = 'aurora.cluster-cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
-        #self.mysql_host = 'pm1.cdagscjv6mu0.ap-southeast-1.rds.amazonaws.com'
-        self.mysql_host = 'rm-t4n4qd132fvxy5prgho.mysql.singapore.rds.aliyuncs.com'
-        self.mysql_user = 'pwm'
-        self.mysql_password = 'Pjy#0618'
-        self.mysql_db_name = 'pp'
+        self.mysql_host = 'host'
+        self.mysql_user = 'user'
+        self.mysql_password = 'password'
+        self.mysql_db_name = 'dbname'
 
     def connect_db(self):
         con_engine = pymysql.connect(
