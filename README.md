@@ -57,5 +57,5 @@ connect error
 
 ## Stop Testing
 ```
-pkill python
+$ pkill python
 ```
