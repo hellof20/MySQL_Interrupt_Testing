@@ -4,6 +4,7 @@ import random
 import pymysql
 import string
 import datetime
+import os
 
 all_chs = string.digits + string.ascii_letters
 
@@ -15,10 +16,10 @@ def get_random_str(str_length):
 
 class RunSqlToMysql(object):
     def __init__(self):
-        self.mysql_host = 'host'
-        self.mysql_user = 'user'
-        self.mysql_password = 'password'
-        self.mysql_db_name = 'dbname'
+        self.mysql_host = os.environ.get('mysql_host')
+        self.mysql_user = os.environ.get('mysql_user')
+        self.mysql_password = os.environ.get('mysql_password')
+        self.mysql_db_name = os.environ.get('mysql_db_name')
 
     def connect_db(self):
         con_engine = pymysql.connect(
