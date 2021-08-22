@@ -24,7 +24,7 @@ $ mysql -h$mysql_host -u$mysql_user -p$mysql_password $mysql_db_name < test_tabl
 
 - run testing tool
 ```
-$ nohup python testwrite.py > testresult.log 2>&1 &
+$ nohup python test_mysql.py > testresult.log 2>&1 &
 ```
 ## Display of test results
 
