@@ -1,6 +1,8 @@
 # MySQL_Interrupt_Testing
 **MySQL_Interrupt_Testing** is a simple tool used to evaluate the time when the client connection is interrupted in the case of reboot, resize instance size, failover, read replica promotion, DNS switch, etc. of the MySQL Server.
 
+The tool will perform three operations of connecting to the database, reading data and inserting data every 0.1 seconds. By observing whether these three operations are successful, it can judge whether the database is unable to connect, read data and write.
+
 ## Installation
 ```
 $ git clone https://github.com/hellof20/MySQL_Interrupt_Testing.git
