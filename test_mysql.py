@@ -16,10 +16,10 @@ def get_random_str(str_length):
 
 class RunSqlToMysql(object):
     def __init__(self):
-        self.mysql_host = os.environ.get('mysql_host')
-        self.mysql_user = os.environ.get('mysql_user')
-        self.mysql_password = os.environ.get('mysql_password')
-        self.mysql_db_name = os.environ.get('mysql_db_name')
+        self.mysql_host = os.environ.get('host')
+        self.mysql_user = os.environ.get('user')
+        self.mysql_password = os.environ.get('password')
+        self.mysql_db_name = os.environ.get('db')
 
     def connect_db(self):
         con_engine = pymysql.connect(
