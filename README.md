@@ -15,11 +15,11 @@ $ pip install -r requirements.txt
 ## Usage
 - create testing table
 ```
-$ export mysql_host=your_mysql_host
-$ export mysql_user=your_mysql_user
-$ export mysql_password=your_mysql_password
-$ export mysql_db_name=your_mysql_db_name
-$ mysql -h$mysql_host -u$mysql_user -p$mysql_password $mysql_db_name < test_table.sql
+$ export host=your_mysql_host
+$ export user=your_mysql_user
+$ export password=your_mysql_password
+$ export db=your_mysql_db_name
+$ mysql -h$mysql_host -u$user -p$password $db < test_table.sql
 ```
 
 - run testing tool
