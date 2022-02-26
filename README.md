@@ -19,7 +19,7 @@ $ export host=your_mysql_host
 $ export user=your_mysql_user
 $ export password=your_mysql_password
 $ export db=your_mysql_db_name
-$ mysql -h$mysql_host -u$user -p$password $db < test_table.sql
+$ mysql -h$host -u$user -p$password $db < test_table.sql
 ```
 
 - run testing tool
