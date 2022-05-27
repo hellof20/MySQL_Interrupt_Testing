@@ -5,9 +5,10 @@ import pymysql
 import string
 import datetime
 import os
+import logging
 
 all_chs = string.digits + string.ascii_letters
-
+logging.basicConfig(filename='result.log', level=logging.INFO)
 
 def get_random_str(str_length):
     random_str_list = [random.choice(all_chs) for k in range(str_length)]
@@ -52,26 +53,26 @@ class RunSqlToMysql(object):
 
     def do(self):
         while True:
-            print('----------------------------')
-            print(datetime.datetime.now())
+            logging.info('----------------------------')
+            logging.info(datetime.datetime.now())
             try:
-                time.sleep(0.5)
+                time.sleep(1)
                 try:
                     mysql_con = self.connect_db()
-                    print('connect successful')
+                    logging.info('connect successful')
                 except:
-                    print('connect error')
+                    logging.info('connect error')
                 try:
                     serverid = self.run_sql(mysql_con, "show variables like'server_id';")
-                    print('read successful: ',':'.join(serverid))
+                    logging.info('read successful:'.join(serverid))
                 except:
-                    print('read error')
+                    logging.info('read error')
                 try:
                     insert_sql = self.get_sql('test',':'.join(serverid))
                     self.run_sql(mysql_con, insert_sql)
-                    print('insert successful')
+                    logging.info('insert successful')
                 except:
-                    print('insert error')
+                    logging.info('insert error')
                 mysql_con.close()
             except:
                 pass

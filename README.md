@@ -13,7 +13,7 @@ $ pip install -r requirements.txt
 ```
 
 ## Usage
-- create testing table
+- prepare, create testing table
 ```
 export host=your_mysql_host
 export user=your_mysql_user
@@ -23,7 +23,8 @@ mysql -h$host -u$user -p$password < prepare.sql
 
 - run testing tool
 ```
-$ nohup python test_mysql.py > testresult.log 2>&1 &
+$ python test_mysql.py
+$ tail -f result.log
 ```
 ## Display of test results
 
