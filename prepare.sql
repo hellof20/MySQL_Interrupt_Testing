@@ -1,4 +1,5 @@
-CREATE TABLE test(
+CREATE DATABASE testdb;
+CREATE TABLE testdb.test(
   id int(12) NOT NULL AUTO_INCREMENT,
   timestamp varchar(50) DEFAULT NULL,
   msg varchar(255) DEFAULT NULL,

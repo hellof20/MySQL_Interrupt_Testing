@@ -19,7 +19,7 @@ class RunSqlToMysql(object):
         self.mysql_host = os.environ.get('host')
         self.mysql_user = os.environ.get('user')
         self.mysql_password = os.environ.get('password')
-        self.mysql_db_name = os.environ.get('db')
+        self.mysql_db_name = 'testdb'
 
     def connect_db(self):
         con_engine = pymysql.connect(
@@ -55,7 +55,7 @@ class RunSqlToMysql(object):
             print('----------------------------')
             print(datetime.datetime.now())
             try:
-                time.sleep(0.1)
+                time.sleep(0.5)
                 try:
                     mysql_con = self.connect_db()
                     print('connect successful')
