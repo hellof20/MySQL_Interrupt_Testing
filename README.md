@@ -31,7 +31,7 @@ $ tail -f result.log
 test mysql server reboot interrupt time , about 6 seconds
 
 ```
-(venv) pwmglobal:~/environment/MySQL_Interrupt_Testing (master) $ cat testresult.log |grep -B 4 'connect error'                                                     
+(venv) pwmglobal:~/environment/MySQL_Interrupt_Testing (master) $ cat result.log |grep -B 4 'connect error'                                                     
 read successful:  server_id:1494392185
 insert successful
 ----------------------------
